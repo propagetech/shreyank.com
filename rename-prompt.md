@@ -23,21 +23,21 @@ Files and context:
     }
   },
   {
-    "path": "blog_checking-audio-mxf-after-the-dcp-is-made.html",
+    "path": "blog-checking-audio-mxf-after-the-dcp-is-made.html",
     "context": {
       "title": "Checking Audio MXF after the DCP is made",
       "first_heading": "Checking Audio MXF after the DCP is made"
     }
   },
   {
-    "path": "blog_shoortcuts.html",
+    "path": "blog-shoortcuts.html",
     "context": {
       "title": "Shoortcuts",
       "first_heading": "Shoortcuts"
     }
   },
   {
-    "path": "blog_sync-sound-requirements.html",
+    "path": "blog-sync-sound-requirements.html",
     "context": {
       "title": "Sync Sound Requirements",
       "first_heading": "Sync Sound Requirements"
@@ -77,6 +77,12 @@ Files and context:
     "path": "css/internal-styles.css",
     "context": {
       "path": "css/internal-styles.css"
+    }
+  },
+  {
+    "path": "imgs/04cd26a7e71848a5ebf8e88a2669b63b.webp",
+    "context": {
+      "refs": []
     }
   },
   {
@@ -133,6 +139,12 @@ Files and context:
     }
   },
   {
+    "path": "imgs/134f9472379d8054c48c21c22f522b4c.webp",
+    "context": {
+      "refs": []
+    }
+  },
+  {
     "path": "imgs/2a4301daba0781afe3bc0696307c572e.webp",
     "context": {
       "refs": []
@@ -154,6 +166,36 @@ Files and context:
     }
   },
   {
+    "path": "imgs/371cd9c4752fd50d6a72cd0cba994035.svg",
+    "context": {
+      "refs": []
+    }
+  },
+  {
+    "path": "imgs/3e39582987706d41db721482687f8a62.svg",
+    "context": {
+      "refs": []
+    }
+  },
+  {
+    "path": "imgs/59b53f26bf3b350b9c4acfa80dd52ac0.webp",
+    "context": {
+      "refs": []
+    }
+  },
+  {
+    "path": "imgs/778ce088b476a3490d58caa02448e0e9.svg",
+    "context": {
+      "refs": []
+    }
+  },
+  {
+    "path": "imgs/89f6b7668ae5201ef30a05fc0081e2d3.webp",
+    "context": {
+      "refs": []
+    }
+  },
+  {
     "path": "imgs/8de25fc6368e749b1ba6d786ca0da9aa.gif",
     "context": {
       "refs": [
@@ -166,6 +208,24 @@ Files and context:
           "title": ""
         }
       ]
+    }
+  },
+  {
+    "path": "imgs/98d048157833e846710898487cf450dc.svg",
+    "context": {
+      "refs": []
+    }
+  },
+  {
+    "path": "imgs/9ef5202fcff0d22280750c14c48c8583.webp",
+    "context": {
+      "refs": []
+    }
+  },
+  {
+    "path": "imgs/a490f104164a21f043b30ed302f2b591.svg",
+    "context": {
+      "refs": []
     }
   },
   {
@@ -184,6 +244,42 @@ Files and context:
     }
   },
   {
+    "path": "imgs/b0dc1228f2c289cb6d03084943206cf0.webp",
+    "context": {
+      "refs": []
+    }
+  },
+  {
+    "path": "imgs/b5721aca08135b6e061e17fae4016faa.webp",
+    "context": {
+      "refs": []
+    }
+  },
+  {
+    "path": "imgs/b9832ce1e3dabce86326d05cacb89f43.svg",
+    "context": {
+      "refs": []
+    }
+  },
+  {
+    "path": "imgs/bc26b60905a3cde8bd01d4872187a47a.svg",
+    "context": {
+      "refs": []
+    }
+  },
+  {
+    "path": "imgs/be7b3ee99b12fa939c35a0e1c9b6c367.svg",
+    "context": {
+      "refs": []
+    }
+  },
+  {
+    "path": "imgs/c1ec2177520de19f711646ff95f865e6.svg",
+    "context": {
+      "refs": []
+    }
+  },
+  {
     "path": "imgs/cbeca52d6e1090e6fd1602094859f7ae.webp",
     "context": {
       "refs": [
@@ -196,6 +292,12 @@ Files and context:
           "title": ""
         }
       ]
+    }
+  },
+  {
+    "path": "imgs/dd0725a4a3c4a81af15b4af8feabfac6.webp",
+    "context": {
+      "refs": []
     }
   },
   {
