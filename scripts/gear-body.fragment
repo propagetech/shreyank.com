@@ -1,0 +1,43 @@
+    <div class="page-banner page-banner--design container">
+      <p class="eyebrow">Post-production</p>
+      <h1>Sound Design</h1>
+      <p class="lead">Editorial and mix preparation for features, documentaries, and series—from dialogue through pre-mix.</p>
+    </div>
+    <div class="container container--narrow">
+      <article class="service-block" id="reconform">
+        <h2>Production tracks re-conform</h2>
+        <img class="service-visual" src="assets/images/site/sound-design.webp" alt="" width="800" height="450" loading="lazy">
+        <p>Re-aligning production audio when picture changes after the offline edit—keeping sync and session integrity intact.</p>
+      </article>
+      <article class="service-block" id="dialogue-edit">
+        <h2>Dialogue edit</h2>
+        <p>Assembly, cleaning, and preparation of dialogue tracks—RX workflows where needed, consistent nomenclature, and edit-friendly sessions.</p>
+      </article>
+      <article class="service-block" id="ambience-edit">
+        <h2>Ambience edit</h2>
+        <p>Building and smoothing backgrounds that support geography, time of day, and editorial rhythm without calling attention to themselves.</p>
+      </article>
+      <article class="service-block" id="fx-edit">
+        <h2>FX edit</h2>
+        <p>Effects editorial with perspective and pace appropriate to the cut—production effects, designed elements, and spot work.</p>
+      </article>
+      <article class="service-block" id="foley-edit">
+        <h2>Foley edit</h2>
+        <p>Performance-based foley cut to picture—footsteps, cloth, props, and other sync elements that sell realism.</p>
+      </article>
+      <article class="service-block" id="mix">
+        <h2>Mix</h2>
+        <p>Pre-mix and mix support where scope includes balancing dialogue, ambience, effects, and music stems for preview or deliverable.</p>
+      </article>
+      <section class="gear-category"><h2>DAW &amp; plugins</h2><ul class="gear-list">
+        <li>Avid Pro Tools Ultimate</li>
+        <li>iZotope RX Advanced</li>
+        <li>FabFilter suite</li>
+        <li>Audio Ease Altiverb</li>
+      </ul></section>
+      <div class="cta-band" style="margin-top: var(--space-12);">
+        <h2>Discuss post scope</h2>
+        <p>Share cut status, deliverables, and timeline—a brief call helps align workflow.</p>
+        <a class="btn btn--primary" href="contact.html">Contact</a>
+      </div>
+    </div>

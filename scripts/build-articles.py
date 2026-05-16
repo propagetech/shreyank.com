@@ -3,12 +3,18 @@
 
 import json
 import os
+import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SCRIPTS = os.path.join(ROOT, "scripts")
+sys.path.insert(0, SCRIPTS)
+
+from site_nav import blog_nav, whatsapp_float
+
 BLOG_DIR = os.path.join(ROOT, "blog")
 CONTENT_DIR = os.path.join(ROOT, "content", "blog")
 
-HEADER = """  <a class="skip-link" href="#main">Skip to main content</a>
+HEADER_TMPL = """  <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="site-logo" href="../index.html">
@@ -16,62 +22,27 @@ HEADER = """  <a class="skip-link" href="#main">Skip to main content</a>
         <span>Film Sound</span>
       </a>
       <div class="header-actions">
-        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch theme">
-          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
         <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
       </div>
       <nav id="site-nav" class="site-nav" aria-label="Primary">
         <ul>
-          <li><a href="../projects.html">Work</a></li>
-          <li><a href="../services.html">Services</a></li>
-          <li><a href="../gear.html">Gear</a></li>
-          <li><a href="../resources.html">Resources</a></li>
-          <li><a href="../about.html">About</a></li>
-          <li><a href="../blog.html" aria-current="page">Notes</a></li>
-          <li><a href="../contact.html">Contact</a></li>
+{nav}
         </ul>
       </nav>
     </div>
   </header>"""
 
-FOOTER = """  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <p class="site-logo" style="margin-bottom: var(--space-4);">Shreyank Nanjappa</p>
-        <p style="font-size: var(--text-sm); max-width: 24rem;">Production sound mixer and sound designer for feature films, documentaries, and series.</p>
-      </div>
-      <div>
-        <h2>Navigate</h2>
-        <ul>
-          <li><a href="../projects.html">Work</a></li>
-          <li><a href="../services.html">Services</a></li>
-          <li><a href="../gear.html">Gear</a></li>
-          <li><a href="../resources.html">Resources</a></li>
-          <li><a href="../about.html">About</a></li>
-          <li><a href="../blog.html">Notes</a></li>
-          <li><a href="../contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Contact</h2>
-        <ul>
-          <li><a href="tel:+919900117364">+91 9900 117 364</a></li>
-          <li><a href="tel:+918600266468">+91 8600 266 468</a></li>
-          <li><a href="mailto:shreyanknanjappa@gmail.com">shreyanknanjappa@gmail.com</a></li>
-        </ul>
-      </div>
-    </div>
+FOOTER_TMPL = """  <footer class="site-footer">
     <div class="container footer-bottom">
       <span>© <span id="year"></span> Shreyank Nanjappa</span>
+      <p class="footer-tagline">Production sound mixer and sound designer for feature films, documentaries, and series.</p>
       <span>Bengaluru · Mumbai · India</span>
     </div>
   </footer>
+{whatsapp}
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
-  <script src="../assets/js/theme-toggle.js" defer></script>
   <script src="../assets/js/navigation.js" defer></script>
   <script src="../assets/js/main.js" defer></script>"""
 
@@ -97,11 +68,11 @@ HEAD = """<!DOCTYPE html>
   <link rel="icon" href="../assets/images/site/favicon.webp" type="image/webp" sizes="32x32">
   <link rel="apple-touch-icon" href="../assets/images/site/favicon.webp">
   <link rel="manifest" href="../site.webmanifest">
-  <meta name="theme-color" content="#1c1917">
+  <meta name="theme-color" content="#000000">
   <script src="../assets/js/theme-init.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/components.css">
   <link rel="stylesheet" href="../assets/css/article.css">
@@ -118,11 +89,15 @@ def related_cards(current_slug, posts):
     items = [p for p in posts if p["slug"] != current_slug][:2]
     html = ['      <div class="card-grid card-grid--2">']
     for p in items:
+        card_id = f"blog-card-{p['slug']}"
         html.append(f"""        <article class="blog-card" data-category="{p['category_slug']}">
+          <a class="blog-card__link" href="{p['slug']}.html" aria-labelledby="{card_id}">
+            <span class="sr-only">Read article: {p['title']}</span>
+          </a>
           <span class="tag blog-card__category">{p['category']}</span>
-          <h3><a href="{p['slug']}.html">{p['title']}</a></h3>
+          <h3 id="{card_id}">{p['title']}</h3>
           <p>{p['excerpt']}</p>
-          <a class="btn btn--ghost" href="{p['slug']}.html">Read article</a>
+          <span class="blog-card__cta" aria-hidden="true">Read article</span>
         </article>""")
     html.append("      </div>")
     return "\n".join(html)
@@ -143,7 +118,7 @@ def build_article(post, posts, body_html):
             "author": {
                 "@type": "Person",
                 "name": "Shreyank Nanjappa",
-                "url": "https://www.shreyank.com/about.html",
+                "url": "https://www.shreyank.com/",
             },
             "publisher": {
                 "@type": "Person",
@@ -185,7 +160,7 @@ def build_article(post, posts, body_html):
               <span itemprop="name"><strong>Shreyank Nanjappa</strong></span> — production sound mixer and sound designer.
               FTII alumnus. Bengaluru &amp; Mumbai.
             </p>
-            <p style="margin-top: var(--space-3);"><a href="../about.html">Full profile</a> · <a href="../contact.html">Contact</a></p>
+            <p style="margin-top: var(--space-3);"><a href="../index.html">Home</a> · <a href="../index.html#contact">Contact</a></p>
           </div>
         </div>
       </aside>
@@ -205,7 +180,8 @@ def build_article(post, posts, body_html):
         og_image=og_image,
         schema=schema,
     )
-    html += HEADER + "\n" + main + "\n\n" + FOOTER + "\n</body>\n</html>\n"
+    html += HEADER_TMPL.format(nav=blog_nav(slug)) + "\n" + main + "\n\n"
+    html += FOOTER_TMPL.format(whatsapp=whatsapp_float()) + "\n</body>\n</html>\n"
 
     path = os.path.join(BLOG_DIR, f"{slug}.html")
     with open(path, "w", encoding="utf-8") as f:
@@ -254,6 +230,26 @@ POSTS = [
         "deck": "You do not need every shortcut—only the ones that match the work you actually do.",
     },
 ]
+
+
+def blog_listing_cards_html():
+    """Blog index cards — keep in sync with article eyebrow, title, and excerpt."""
+    lines = ['      <div class="card-grid card-grid--3">']
+    for post in POSTS:
+        card_id = f"blog-card-{post['slug']}"
+        lines.append(
+            f"""        <article class="blog-card">
+          <a class="blog-card__link" href="blog/{post['slug']}.html" aria-labelledby="{card_id}">
+            <span class="sr-only">Read article: {post['title']}</span>
+          </a>
+          <p class="blog-card__category">{post['category']}</p>
+          <h2 id="{card_id}">{post['title']}</h2>
+          <p>{post['excerpt']}</p>
+          <span class="blog-card__cta" aria-hidden="true">Read article</span>
+        </article>"""
+        )
+    lines.append("      </div>")
+    return "\n".join(lines)
 
 
 def redirect_html(target):

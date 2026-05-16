@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checking Audio MXF after the DCP is made — Shreyank Nanjappa</title>
+  <meta name="description" content="How to extract and compare DCP audio MXF files with ffmpeg and Pro Tools—and why track layout matters for festival delivery.">
+  <link rel="canonical" href="https://www.shreyank.com/blog/checking-audio-mxf-after-the-dcp-is-made.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.shreyank.com/blog/checking-audio-mxf-after-the-dcp-is-made.html">
+  <meta property="og:title" content="Checking Audio MXF after the DCP is made">
+  <meta property="og:description" content="How to extract and compare DCP audio MXF files with ffmpeg and Pro Tools—and why track layout matters for festival delivery.">
+  <meta property="article:published_time" content="2017-02-02">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@NShreyank">
+  <meta name="twitter:title" content="Checking Audio MXF after the DCP is made">
+  <meta name="twitter:description" content="How to extract and compare DCP audio MXF files with ffmpeg and Pro Tools—and why track layout matters for festival delivery.">
+    <meta property="og:image" content="https://www.shreyank.com/assets/images/blog/image-24.webp">
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/images/site/favicon.webp" type="image/webp" sizes="32x32">
+  <link rel="apple-touch-icon" href="../assets/images/site/favicon.webp">
+  <link rel="manifest" href="../site.webmanifest">
+  <meta name="theme-color" content="#1c1917">
+  <script src="../assets/js/theme-init.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/article.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Checking Audio MXF after the DCP is made",
+  "description": "How to extract and compare DCP audio MXF files with ffmpeg and Pro Tools\u2014and why track layout matters for festival delivery.",
+  "datePublished": "2017-02-02",
+  "author": {
+    "@type": "Person",
+    "name": "Shreyank Nanjappa",
+    "url": "https://www.shreyank.com/about.html"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Shreyank Nanjappa"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.shreyank.com/blog/checking-audio-mxf-after-the-dcp-is-made.html"
+  },
+  "articleSection": "Technical",
+  "inLanguage": "en-IN"
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-logo" href="../index.html">
+        Shreyank Nanjappa
+        <span>Film Sound</span>
+      </a>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="../projects.html">Work</a></li>
+          <li><a href="../services.html">Services</a></li>
+          <li><a href="../gear.html">Gear</a></li>
+          <li><a href="../resources.html">Resources</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../blog.html" aria-current="page">Notes</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="article-layout">
+    <article class="article" itemscope itemtype="https://schema.org/BlogPosting">
+      <header class="article-hero container">
+        <nav class="article-breadcrumb" aria-label="Breadcrumb">
+          <a href="../blog.html">← All notes</a>
+        </nav>
+        <p class="eyebrow">Technical</p>
+        <h1 itemprop="headline">Checking Audio MXF after the DCP is made</h1>
+        <p class="article-hero__deck">After a Berlinale-bound short revealed different sound between two DCPs, I started always checking the sound MXF.</p>
+        <div class="article-meta">
+          <time datetime="2017-02-02" itemprop="datePublished">2 February 2017</time>
+          <span>7 min read</span>
+        </div>
+      </header>
+      <div class="article-body" itemprop="articleBody">
+        <div class="callout">
+          <span class="callout__label">Takeaway</span>
+          <p>I will always check the MXF from the DCP from now on. When in doubt, deliver six mono tracks (L, C, R, Ls, Rs, LFE) even if only L and R carry content.</p>
+        </div>
+
+        <p>First, a short introduction of why I ended up testing the sound MXF.</p>
+
+        <h2 id="background">Background</h2>
+        <p>A short film for which I did the sound recording and design was selected at the Berlin International Film Festival. The DCP was made at a post-production facility in Mumbai. My team asked for the subtitle font size to be set to 21 instead of the usual 38 (or 36?). There are very few dialogues and the usual subtitle size is way too big for our liking.</p>
+        <p>The technical team from Berlin wrote back requesting if we would be willing to send another DCP with bigger subtitles. The subtitles in the DCP that was made were in the CPL.xml format and could not be tampered with using any of the free DCP-making software. We decided to make another DCP from the graded DPX files we had. I used DCP-o-matic with the stereo sound mix and an .srt subtitle file. The new DCP was fine with respect to subtitles.</p>
+        <p>We played the earlier DCP to compare subtitle size and the new one was better—but we noticed quite a bit of difference between the sound in the two DCPs. The room we were testing in was not calibrated to judge which was better, but there definitely was a difference. I was getting worried. Everything I had read suggested that DCP-making software does not usually tamper with sound files.</p>
+
+        <h2 id="extracting-mxf">Extracting audio from the DCP MXF</h2>
+        <p>I decided the best way to see what was happening was to convert the <code>*_pcm.mxf</code> files (which contain the audio) from both DCPs to WAV and compare them with the original stereo mix.</p>
+        <p>After a little research I downloaded ffmpeg and used a command like:</p>
+        <pre><code>ffmpeg -i Name_DCP_PCM.mxf -acodec pcm_s24le -ac 6 audio.wav</code></pre>
+        <p>This extracts the MXF into a 5.1 WAV file.</p>
+
+        <figure>
+          <img src="../assets/images/blog/image-24.webp" alt="ffmpeg terminal output when extracting PCM from DCP MXF" width="640" height="659" loading="lazy">
+          <figcaption>Extracting PCM from the DCP MXF with ffmpeg.</figcaption>
+        </figure>
+
+        <h2 id="track-layout">What showed up in Pro Tools</h2>
+        <p>I converted both MXF files and imported them into Pro Tools. The DCP from the post facility (apparently made with Qube) had content in L, C, and R—the software had derived that from the stereo track we supplied. Ls, Rs, and LFE were empty. Some reading suggested DCPs accept mono, 3.0, 5.1, 7.1, and other layouts.</p>
+
+        <figure>
+          <img src="../assets/images/blog/image-5.webp" alt="Pro Tools session showing L C R populated and surround tracks empty from Qube DCP" width="747" height="363" loading="lazy">
+          <figcaption>DCP from post facility: L, C, R populated from stereo; surrounds and LFE empty.</figcaption>
+        </figure>
+
+        <p>The DCP made with DCP-o-matic had the correct content on L and R; C, Ls, Rs, and LFE were blank.</p>
+
+        <figure>
+          <img src="../assets/images/blog/image-15.webp" alt="Pro Tools session showing L and R only from DCP-o-matic DCP" width="748" height="365" loading="lazy">
+          <figcaption>DCP-o-matic: stereo on L and R only; other channels blank.</figcaption>
+        </figure>
+
+        <h2 id="phase-check">Verifying against the original mix</h2>
+        <p>To verify the tracks were not altered, I aligned L and R from each DCP with L and R from my stereo mix, inserted the default 1-Band EQ on the mix track, and flipped phase. Playback cancelled completely against the DCP tracks—so the stereo content matched.</p>
+
+        <figure>
+          <img src="../assets/images/blog/image-22.webp" alt="Pro Tools phase cancellation test between DCP audio and original stereo mix" width="1326" height="379" loading="lazy">
+          <figcaption>Phase cancellation confirms L/R from the DCP match the supplied stereo mix.</figcaption>
+        </figure>
+
+        <div class="callout callout--conclusion">
+          <span class="callout__label">Conclusion</span>
+          <p>It is best to deliver six mono tracks (named L, C, R, Ls, Rs, LFE) even when only L and R have content and the rest are empty.</p>
+        </div>
+
+        <h2 id="note-stereo-extract">Note on stereo extraction</h2>
+        <p>The following command converts the MXF audio to stereo—which added to my confusion at first:</p>
+        <pre><code>ffmpeg -i Name_DCP_PCM.mxf -acodec pcm_s24le -ac 2 audio.wav</code></pre>
+
+      </div>
+      <aside class="article-author container" aria-labelledby="author-heading-checking-audio-mxf-after-the-dcp-is-made">
+        <div class="article-author__inner">
+          <img class="article-author__avatar" src="../assets/images/site/author.webp" alt="Shreyank Nanjappa" width="64" height="64" loading="lazy">
+          <div>
+            <h2 id="author-heading-checking-audio-mxf-after-the-dcp-is-made">About the author</h2>
+            <p itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span itemprop="name"><strong>Shreyank Nanjappa</strong></span> — production sound mixer and sound designer.
+              FTII alumnus. Bengaluru &amp; Mumbai.
+            </p>
+            <p style="margin-top: var(--space-3);"><a href="../about.html">Full profile</a> · <a href="../contact.html">Contact</a></p>
+          </div>
+        </div>
+      </aside>
+      <aside class="article-related" aria-labelledby="related-heading-checking-audio-mxf-after-the-dcp-is-made">
+        <h2 id="related-heading-checking-audio-mxf-after-the-dcp-is-made">More notes</h2>
+      <div class="card-grid card-grid--2">
+        <article class="blog-card" data-category="basics">
+          <span class="tag blog-card__category">Sound basics</span>
+          <h3><a href="sync-sound-requirements.html">Sync Sound Requirements</a></h3>
+          <p>Why sync sound matters, when it is feasible, and what every department must commit to on set.</p>
+          <a class="btn btn--ghost" href="sync-sound-requirements.html">Read article</a>
+        </article>
+        <article class="blog-card" data-category="post">
+          <span class="tag blog-card__category">Sound post</span>
+          <h3><a href="shoortcuts.html">Shoortcuts</a></h3>
+          <p>A short list of Pro Tools shortcuts I use regularly for editorial work—not an exhaustive list.</p>
+          <a class="btn btn--ghost" href="shoortcuts.html">Read article</a>
+        </article>
+      </div>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="site-logo" style="margin-bottom: var(--space-4);">Shreyank Nanjappa</p>
+        <p style="font-size: var(--text-sm); max-width: 24rem;">Production sound mixer and sound designer for feature films, documentaries, and series.</p>
+      </div>
+      <div>
+        <h2>Navigate</h2>
+        <ul>
+          <li><a href="../projects.html">Work</a></li>
+          <li><a href="../services.html">Services</a></li>
+          <li><a href="../gear.html">Gear</a></li>
+          <li><a href="../resources.html">Resources</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../blog.html">Notes</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="tel:+919900117364">+91 9900 117 364</a></li>
+          <li><a href="tel:+918600266468">+91 8600 266 468</a></li>
+          <li><a href="mailto:shreyanknanjappa@gmail.com">shreyanknanjappa@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> Shreyank Nanjappa</span>
+      <span>Bengaluru · Mumbai · India</span>
+    </div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script src="../assets/js/theme-toggle.js" defer></script>
+  <script src="../assets/js/navigation.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

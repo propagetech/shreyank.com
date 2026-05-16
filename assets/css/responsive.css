@@ -4,6 +4,18 @@
   .hide-mobile {
     display: none !important;
   }
+
+  .whatsapp-float {
+    right: var(--space-4);
+    bottom: var(--space-4);
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .whatsapp-float svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 }
 
 @media (min-width: 40rem) {
@@ -21,11 +33,11 @@
 @media print {
   .site-header,
   .site-footer,
-  .theme-toggle,
   .nav-toggle,
   .skip-link,
   .filter-bar,
-  .hero__texture {
+  .hero__texture,
+  .whatsapp-float {
     display: none !important;
   }
 

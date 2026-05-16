@@ -4,8 +4,8 @@
   "description": "Bengaluru-based production sound mixer and sound designer for feature films, documentaries, and series.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f4f1ec",
-  "theme_color": "#1c1917",
+  "background_color": "#000000",
+  "theme_color": "#000000",
   "icons": [
     {
       "src": "/assets/icons/favicon.svg",

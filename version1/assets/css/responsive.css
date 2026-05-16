@@ -1,0 +1,41 @@
+/* Responsive refinements */
+
+@media (max-width: 39.99rem) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 40rem) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+@media (min-width: 48rem) {
+  .section {
+    padding-block: var(--space-20);
+  }
+}
+
+@media print {
+  .site-header,
+  .site-footer,
+  .theme-toggle,
+  .nav-toggle,
+  .skip-link,
+  .filter-bar,
+  .hero__texture {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+}
