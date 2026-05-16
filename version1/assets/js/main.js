@@ -1,4 +1,4 @@
-/* Global enhancements — reserved for future use */
+/* Global enhancements - reserved for future use */
 (function () {
   "use strict";
 })();

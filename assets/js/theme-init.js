@@ -1,4 +1,4 @@
-/* Lock dark theme — load synchronously in <head> */
+/* Lock dark theme - load synchronously in <head> */
 (function () {
   document.documentElement.setAttribute("data-theme", "dark");
   try {

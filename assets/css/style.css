@@ -1,9 +1,9 @@
-/* Shreyank Nanjappa — Design tokens & base (original site look & feel) */
+/* Shreyank Nanjappa - Design tokens & base (original site look & feel) */
 
 :root {
   color-scheme: dark;
 
-  /* Typography — matches original shreyank.com */
+  /* Typography - matches original shreyank.com */
   --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-body: "Quicksand", system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
@@ -44,6 +44,7 @@
   --space-24: 6rem;
 
   /* Layout */
+  --layout-max-width: 68rem;
   --container-narrow: 40rem;
   --container-default: 68rem;
   --container-wide: 80rem;
@@ -66,7 +67,7 @@
   --border-style: solid;
 }
 
-/* Dark theme — cinematic default (original site) */
+/* Dark theme - cinematic default (original site) */
 html {
   --color-bg: #000000;
   --color-bg-elevated: #0a0a0a;
@@ -84,6 +85,11 @@ html {
   --color-hero-overlay: rgba(0, 0, 0, 0.52);
   --color-header-bg: rgba(0, 0, 0, 0.95);
   --color-panel-overlay: rgba(0, 0, 0, 0.81);
+  /* Typography on dark / image-backed sections */
+  --color-on-image-heading: var(--color-text);
+  --color-on-image-lead: rgba(204, 204, 204, 0.85);
+  --color-on-image-body: rgba(204, 204, 204, 0.88);
+  --color-on-image-muted: rgba(204, 204, 204, 0.65);
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
   --wave-opacity: 0;
@@ -214,6 +220,15 @@ main {
   margin-inline: auto;
 }
 
+/* Body only - header/footer stay at fixed site width */
+main .container {
+  width: min(100% - var(--gutter) * 2, var(--layout-max-width));
+}
+
+main .container--narrow {
+  width: min(100% - var(--gutter) * 2, calc(var(--layout-max-width) * 40 / 68));
+}
+
 .eyebrow {
   font-family: var(--font-body);
   font-size: var(--text-xs);
@@ -279,7 +294,7 @@ main {
   color: var(--color-bg);
 }
 
-/* Sonic texture — restrained */
+/* Sonic texture - restrained */
 .hero__texture {
   position: absolute;
   inset: 0;

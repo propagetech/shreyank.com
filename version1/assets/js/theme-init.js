@@ -1,4 +1,4 @@
-/* Prevent flash of wrong theme — load synchronously in <head> */
+/* Prevent flash of wrong theme - load synchronously in <head> */
 (function () {
   var STORAGE_KEY = "shreyank-theme";
   var stored = null;

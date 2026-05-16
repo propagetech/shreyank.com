@@ -1,9 +1,9 @@
-/* Shreyank Nanjappa — Design tokens & base (original site look & feel) */
+/* Shreyank Nanjappa - Design tokens & base (original site look & feel) */
 
 :root {
   color-scheme: dark light;
 
-  /* Typography — matches original shreyank.com */
+  /* Typography - matches original shreyank.com */
   --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-body: "Quicksand", system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
@@ -89,7 +89,7 @@ html[data-theme="light"] {
   --wave-opacity: 0;
 }
 
-/* Dark theme — cinematic default (original site) */
+/* Dark theme - cinematic default (original site) */
 html[data-theme="dark"] {
   --color-bg: #000000;
   --color-bg-elevated: #0a0a0a;
@@ -348,7 +348,7 @@ main {
   color: var(--color-bg);
 }
 
-/* Sonic texture — restrained */
+/* Sonic texture - restrained */
 .hero__texture {
   position: absolute;
   inset: 0;

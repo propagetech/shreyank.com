@@ -117,7 +117,7 @@ def nav(active):
 
 def write_page(name, title, desc, body, schema="", extra=""):
     canonical = name if name != "index.html" else ""
-    og = title.split("—")[0].strip() if "—" in title else title
+    og = title.split("-")[0].strip() if "-" in title else title
     html = HEAD.format(title=title, desc=desc, canonical=canonical, og=og, schema=schema)
     html += HEADER_TMPL.format(nav=nav(name))
     html += f"\n  <main id=\"main\">\n{body}\n  </main>\n\n"
@@ -135,7 +135,7 @@ SERVICES_BODY = '''    <motion></motion>
     <div class="page-header container">
       <p class="eyebrow">Services</p>
       <h1>Sound services for film &amp; television</h1>
-      <p class="lead">Clear scope, reliable workflows, and material that editorial and post can build on—from location through pre-mix.</p>
+      <p class="lead">Clear scope, reliable workflows, and material that editorial and post can build on-from location through pre-mix.</p>
     </div>
     <motion></motion>
     <div class="container container--narrow">
@@ -153,11 +153,11 @@ SERVICES_BODY = '''    <motion></motion>
       </article>
       <article class="service-block" id="location-recording">
         <h2>Location sound recording</h2>
-        <p>Full location sound department support—dialogue, plant mics where appropriate, and communication with production on noise control.</p>
+        <p>Full location sound department support-dialogue, plant mics where appropriate, and communication with production on noise control.</p>
       </article>
       <article class="service-block" id="ambience">
         <h2>Ambience recording</h2>
-        <p>MS, ORTF, and spaced-pair recordings tailored to picture geography and editorial needs—room tones, exteriors, and signature environments.</p>
+        <p>MS, ORTF, and spaced-pair recordings tailored to picture geography and editorial needs-room tones, exteriors, and signature environments.</p>
       </article>
       <article class="service-block" id="fx-recording">
         <h2>FX recording</h2>
@@ -165,11 +165,11 @@ SERVICES_BODY = '''    <motion></motion>
       </article>
       <article class="service-block" id="foley-recording">
         <h2>Foley recording</h2>
-        <p>Location and studio foley with attention to performance, perspective, and sync—supervision available for features.</p>
+        <p>Location and studio foley with attention to performance, perspective, and sync-supervision available for features.</p>
       </article>
       <article class="service-block" id="dialogue-edit">
         <h2>Dialogue editing</h2>
-        <p>Assembly, cleaning, and preparation of dialogue tracks—RX workflows where needed, consistent nomenclature, and edit-friendly sessions.</p>
+        <p>Assembly, cleaning, and preparation of dialogue tracks-RX workflows where needed, consistent nomenclature, and edit-friendly sessions.</p>
       </article>
       <article class="service-block" id="sound-design">
         <h2>Sound design &amp; editorial</h2>
@@ -179,11 +179,11 @@ SERVICES_BODY = '''    <motion></motion>
       </article>
       <article class="service-block" id="post-support">
         <h2>Post-production support</h2>
-        <p>Consultation on workflow, deliverables, and technical requirements for Indian and international finishing paths—including DCP-related audio checks.</p>
+        <p>Consultation on workflow, deliverables, and technical requirements for Indian and international finishing paths-including DCP-related audio checks.</p>
       </article>
       <div class="cta-band" style="margin-top: var(--space-12);">
         <h2>Discuss scope for your project</h2>
-        <p>Share format, schedule, and locations—a brief call is usually enough to align kit and crew.</p>
+        <p>Share format, schedule, and locations-a brief call is usually enough to align kit and crew.</p>
         <a class="btn btn--primary" href="contact.html">Contact</a>
       </div>
     </div>'''.replace("<motion></motion>\n    ", "").replace("    <motion></motion>\n    ", "")
@@ -211,9 +211,9 @@ GEAR_BODY = '''    <div class="page-header container">
       <section class="gear-category"><h2>Ambience &amp; stereo</h2><ul class="gear-list">
         <li>Sennheiser MKH 50/30 MS pair</li>
         <li>Sennheiser MKH 418</li>
-        <li>MKH 50 pair — XY or AB</li>
+        <li>MKH 50 pair - XY or AB</li>
         <li>Holophone</li>
-        <li>Line Audio CM3 — ORTF pair</li>
+        <li>Line Audio CM3 - ORTF pair</li>
       </ul></section>
       <section class="gear-category"><h2>FX &amp; location foley</h2><ul class="gear-list"><li>Sennheiser MKH 60 / 416</li></ul></section>
       <section class="gear-category"><h2>Studio foley</h2><ul class="gear-list">
@@ -234,14 +234,14 @@ GEAR_BODY = '''    <div class="page-header container">
 RESOURCES_BODY = '''    <div class="page-header container">
       <p class="eyebrow">Library</p>
       <h1>Resources</h1>
-      <p class="lead">Books, podcasts, and sites worth returning to—for craft, theory, and practical post work.</p>
+      <p class="lead">Books, podcasts, and sites worth returning to-for craft, theory, and practical post work.</p>
     </div>
     <div class="container container--narrow">
       <section class="resource-group"><h2>Books</h2><ul class="resource-list">
-        <li><strong>Audio-Vision</strong> — Michel Chion<span>Sound and image relationships; essential reading.</span></li>
-        <li><strong>Notes on the Cinematographer</strong> — Robert Bresson<span>Concise craft thinking applicable to sound discipline.</span></li>
-        <li><strong>Master Handbook of Acoustics</strong> — F. Alton Everest<span>Room acoustics and practical measurement.</span></li>
-        <li><a href="http://www.euppublishing.com/loi/sound" rel="noopener noreferrer">The New Soundtrack</a><span>Journal — Edinburgh University Press</span></li>
+        <li><strong>Audio-Vision</strong> - Michel Chion<span>Sound and image relationships; essential reading.</span></li>
+        <li><strong>Notes on the Cinematographer</strong> - Robert Bresson<span>Concise craft thinking applicable to sound discipline.</span></li>
+        <li><strong>Master Handbook of Acoustics</strong> - F. Alton Everest<span>Room acoustics and practical measurement.</span></li>
+        <li><a href="http://www.euppublishing.com/loi/sound" rel="noopener noreferrer">The New Soundtrack</a><span>Journal - Edinburgh University Press</span></li>
       </ul></section>
       <section class="resource-group"><h2>Podcasts</h2><ul class="resource-list">
         <li><a href="http://tonebenderspodcast.com/" rel="noopener noreferrer">Tonebenders</a></li>
@@ -250,9 +250,9 @@ RESOURCES_BODY = '''    <div class="page-header container">
       </ul></section>
       <section class="resource-group"><h2>Websites &amp; tools</h2><ul class="resource-list">
         <li><a href="http://filmsound.org/" rel="noopener noreferrer">FilmSound.org</a></li>
-        <li><a href="https://www.schoolofsound.co.uk/sos/audio-and-video-archives/" rel="noopener noreferrer">School of Sound — Archives</a></li>
+        <li><a href="https://www.schoolofsound.co.uk/sos/audio-and-video-archives/" rel="noopener noreferrer">School of Sound - Archives</a></li>
         <li><a href="http://designingsound.org/" rel="noopener noreferrer">Designing Sound</a></li>
-        <li><a href="https://amcoustics.com/tools/amroc" rel="noopener noreferrer">Amroc — Room modes calculator</a></li>
+        <li><a href="https://amcoustics.com/tools/amroc" rel="noopener noreferrer">Amroc - Room modes calculator</a></li>
         <li><a href="http://foley-artistry.blogspot.in/" rel="noopener noreferrer">Foley Artistry</a></li>
         <li><a href="http://duc.avid.com/" rel="noopener noreferrer">Avid Pro Tools Community</a></li>
         <li><a href="http://soundrolling.com/" rel="noopener noreferrer">Sound Rolling</a></li>
@@ -260,7 +260,7 @@ RESOURCES_BODY = '''    <div class="page-header container">
       <section class="resource-group"><h2>Blogs</h2><ul class="resource-list">
         <li><a href="http://markmangini.com/Mark_Mangini/Blog/Blog.html" rel="noopener noreferrer">Mark Mangini</a></li>
         <li><a href="https://randythomblog.wordpress.com/" rel="noopener noreferrer">Randy Thom</a></li>
-        <li><a href="http://www.musicofsound.co.nz/blog/" rel="noopener noreferrer">Tim Prebble — Music of Sound</a></li>
+        <li><a href="http://www.musicofsound.co.nz/blog/" rel="noopener noreferrer">Tim Prebble - Music of Sound</a></li>
       </ul></section>
     </div>'''
 
@@ -271,9 +271,9 @@ ABOUT_BODY = '''    <div class="page-header container">
     </div>
     <div class="container container--narrow">
       <p>Shreyank is a Bengaluru-based sound professional working in production sound mixing and sound design for feature films, documentaries, shorts, and series. He is an alumnus of the Film and Television Institute of India (FTII), where he trained alongside filmmakers whose work has travelled to Cannes, Berlinale, and beyond.</p>
-      <p>He served as production sound mixer on <em>The Elephant Whisperers</em>—the Academy Award-winning documentary short—and has production and editorial credits on Hindi and regional features including <em>Article 15</em> and <em>Kabir Singh</em>, as well as festival-selected work with directors such as Payal S Kapadia and Rima Das.</p>
+      <p>He served as production sound mixer on <em>The Elephant Whisperers</em>-the Academy Award-winning documentary short-and has production and editorial credits on Hindi and regional features including <em>Article 15</em> and <em>Kabir Singh</em>, as well as festival-selected work with directors such as Payal S Kapadia and Rima Das.</p>
       <h2>Approach to sound</h2>
-      <p>Good film sound is invisible until it is not: dialogue you do not strain to hear, ambience that holds space without calling attention, and effects that belong to the frame. On set, that means protecting performance and building tracks editorial can trust. In post, it means editorial that serves picture and rhythm—not decoration.</p>
+      <p>Good film sound is invisible until it is not: dialogue you do not strain to hear, ambience that holds space without calling attention, and effects that belong to the frame. On set, that means protecting performance and building tracks editorial can trust. In post, it means editorial that serves picture and rhythm-not decoration.</p>
       <h2>Collaboration</h2>
       <p>Shreyank works closely with directors, producers, and post supervisors from prep through delivery. Communication is direct; expectations on deliverables, schedules, and noise are set early.</p>
       <h2>Availability</h2>
@@ -284,7 +284,7 @@ CONTACT_BODY = '''    <motion></motion>
     <div class="page-header container">
       <p class="eyebrow">Contact</p>
       <h1>Enquiries</h1>
-      <p class="lead">For production sound, location recording, or sound design—share a brief outline of your project.</p>
+      <p class="lead">For production sound, location recording, or sound design-share a brief outline of your project.</p>
     </div>
     <div class="container split">
       <div>
@@ -294,8 +294,8 @@ CONTACT_BODY = '''    <motion></motion>
           <li><a href="tel:+918600266468">+91 8600 266 468</a></li>
           <li><a href="mailto:shreyanknanjappa@gmail.com">shreyanknanjappa@gmail.com</a></li>
         </ul>
-        <p><strong>Location:</strong> Bengaluru, India — available Mumbai &amp; on location</p>
-        <p><strong>Response:</strong> Typically within 2–3 business days. Urgent production enquiries—call.</p>
+        <p><strong>Location:</strong> Bengaluru, India - available Mumbai &amp; on location</p>
+        <p><strong>Response:</strong> Typically within 2–3 business days. Urgent production enquiries-call.</p>
         <p class="form-note">This form opens your email client with a pre-filled message. No data is stored on this website.</p>
       </div>
       <form id="contact-form" action="#" method="post" novalidate>
@@ -330,7 +330,7 @@ CONTACT_BODY = '''    <motion></motion>
 BLOG_BODY = '''    <div class="page-header container">
       <p class="eyebrow">Notes</p>
       <h1>Writing on film sound</h1>
-      <p class="lead">Practical introductions to sync sound, post workflows, and tools—with context for Indian production.</p>
+      <p class="lead">Practical introductions to sync sound, post workflows, and tools-with context for Indian production.</p>
     </div>
     <motion></motion>
     <div class="container container--narrow">
@@ -338,7 +338,7 @@ BLOG_BODY = '''    <div class="page-header container">
         <article class="blog-card">
           <p class="blog-card__date">Sound for film</p>
           <h2><a href="old/blog-sync-sound-requirements.html">Sync sound requirements</a></h2>
-          <p>Why sync sound matters, when it is feasible, and what production needs to plan for—especially in India.</p>
+          <p>Why sync sound matters, when it is feasible, and what production needs to plan for-especially in India.</p>
           <a class="btn btn--ghost" href="old/blog-sync-sound-requirements.html">Read article</a>
         </article>
         <article class="blog-card">
@@ -350,7 +350,7 @@ BLOG_BODY = '''    <div class="page-header container">
         <article class="blog-card">
           <p class="blog-card__date">Pro Tools</p>
           <h2><a href="old/blog-shoortcuts.html">Useful Pro Tools shortcuts</a></h2>
-          <p>Shortcuts for dialogue, effects, and foley editorial—the ones worth learning first.</p>
+          <p>Shortcuts for dialogue, effects, and foley editorial-the ones worth learning first.</p>
           <a class="btn btn--ghost" href="old/blog-shoortcuts.html">Read article</a>
         </article>
       </div>
@@ -360,7 +360,7 @@ BLOG_BODY = '''    <div class="page-header container">
 ERROR_BODY = '''    <div class="error-page">
       <p class="error-page__code" aria-hidden="true">404</p>
       <h1>Page not found</h1>
-      <p>The page you requested is not here—it may have moved or the link may be outdated.</p>
+      <p>The page you requested is not here-it may have moved or the link may be outdated.</p>
       <a class="btn btn--primary" href="index.html">Return home</a>
     </div>'''
 
@@ -369,7 +369,7 @@ if __name__ == "__main__":
     projects_body = f'''    <div class="page-header container">
       <p class="eyebrow">Filmography</p>
       <h1>Selected work &amp; credits</h1>
-      <p class="lead">Features, documentaries, shorts, and series—organized for quick scanning. Filter by role or format.</p>
+      <p class="lead">Features, documentaries, shorts, and series-organized for quick scanning. Filter by role or format.</p>
     </div>
     <div class="container container--narrow">
       <p id="filter-status" class="sr-only" aria-live="polite"></p>
@@ -388,35 +388,35 @@ if __name__ == "__main__":
     </div>'''
     write_page(
         "projects.html",
-        "Work &amp; Filmography — Shreyank Nanjappa",
+        "Work &amp; Filmography - Shreyank Nanjappa",
         "Film credits including The Elephant Whisperers, Article 15, Kabir Singh, and festival-selected shorts. Production sound and sound design.",
         projects_body,
         schema='  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Filmography","url":"https://www.shreyank.com/projects.html","about":{"@type":"Person","name":"Shreyank Nanjappa"}}</script>',
         extra='  <script src="assets/js/filters.js" defer></script>',
     )
-    write_page("services.html", "Services — Shreyank Nanjappa",
+    write_page("services.html", "Services - Shreyank Nanjappa",
         "Production sound mixing, sync sound, location recording, sound design, and post-production support for film and television.",
         SERVICES_BODY)
-    write_page("gear.html", "Gear &amp; Technical Setup — Shreyank Nanjappa",
+    write_page("gear.html", "Gear &amp; Technical Setup - Shreyank Nanjappa",
         "Location sound and post-production kit: Sound Devices recorders, Schoeps and Sennheiser microphones, Lectrosonics wireless, Pro Tools.",
         GEAR_BODY)
-    write_page("resources.html", "Resources — Shreyank Nanjappa",
+    write_page("resources.html", "Resources - Shreyank Nanjappa",
         "Curated books, podcasts, blogs, and tools for film sound professionals and students.",
         RESOURCES_BODY)
-    write_page("about.html", "About — Shreyank Nanjappa",
+    write_page("about.html", "About - Shreyank Nanjappa",
         "Bengaluru-based production sound mixer and sound designer. FTII alumnus. Credits across Indian and international film.",
         ABOUT_BODY,
         schema='  <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","mainEntity":{"@type":"Person","name":"Shreyank Nanjappa","alumniOf":{"@type":"CollegeOrUniversity","name":"Film and Television Institute of India"}}}</script>')
-    write_page("contact.html", "Contact — Shreyank Nanjappa",
+    write_page("contact.html", "Contact - Shreyank Nanjappa",
         "Contact Shreyank Nanjappa for production sound and sound design enquiries. Bengaluru and Mumbai.",
         CONTACT_BODY,
         schema='  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ContactPage","url":"https://www.shreyank.com/contact.html"}</script>',
         extra='  <script src="assets/js/contact-form.js" defer></script>')
-    write_page("blog.html", "Notes &amp; Writing — Shreyank Nanjappa",
+    write_page("blog.html", "Notes &amp; Writing - Shreyank Nanjappa",
         "Practical notes on sync sound, post workflows, and film sound craft.",
         BLOG_BODY,
         schema='  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Shreyank Nanjappa Notes","url":"https://www.shreyank.com/blog.html"}</script>')
-    write_page("404.html", "Page Not Found — Shreyank Nanjappa",
+    write_page("404.html", "Page Not Found - Shreyank Nanjappa",
         "The page you requested could not be found.",
         ERROR_BODY)
     print("done all pages")

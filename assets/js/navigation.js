@@ -2,14 +2,36 @@
   function init() {
     var toggle = document.querySelector("[data-nav-toggle]");
     var nav = document.getElementById("site-nav");
+    var header = document.querySelector(".site-header");
     if (!toggle || !nav) {
       return;
+    }
+
+    function scrollbarWidth() {
+      return window.innerWidth - document.documentElement.clientWidth;
     }
 
     function setOpen(open) {
       nav.classList.toggle("is-open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
-      document.body.style.overflow = open ? "hidden" : "";
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      document.body.classList.toggle("nav-open", open);
+      if (open) {
+        var gutter = scrollbarWidth();
+        document.body.style.overflow = "hidden";
+        if (gutter > 0) {
+          document.body.style.paddingRight = gutter + "px";
+          if (header) {
+            header.style.paddingRight = gutter + "px";
+          }
+        }
+      } else {
+        document.body.style.overflow = "";
+        document.body.style.paddingRight = "";
+        if (header) {
+          header.style.paddingRight = "";
+        }
+      }
     }
 
     toggle.addEventListener("click", function () {

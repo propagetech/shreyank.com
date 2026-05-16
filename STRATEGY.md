@@ -1,8 +1,8 @@
-# Shreyank.com Redesign — Strategy & Documentation
+# Shreyank.com Redesign - Strategy & Documentation
 
 ## A. Executive Summary
 
-This redesign transforms a single-page, builder-generated portfolio into a **premium, cinematic, multi-page static site** for Shreyank Nanjappa—a Bengaluru-based production sound mixer and sound designer. The new site communicates craft and technical credibility to filmmakers, producers, and post teams without hype or template aesthetics.
+This redesign transforms a single-page, builder-generated portfolio into a **premium, cinematic, multi-page static site** for Shreyank Nanjappa-a Bengaluru-based production sound mixer and sound designer. The new site communicates craft and technical credibility to filmmakers, producers, and post teams without hype or template aesthetics.
 
 **Delivered:** Multi-page portfolio, 3 redesigned blog articles at preserved `/blog/` URLs, article template + `article.css`, BlogPosting schema, category-filtered notes index, and redirects from legacy `old/blog-*.html` paths.
 
@@ -20,18 +20,18 @@ This redesign transforms a single-page, builder-generated portfolio into a **pre
 
 **Positioning line:** Sound built for presence, texture, and control.
 
-**Accuracy rule:** Credit *The Elephant Whisperers* as Academy Award–winning film; Shreyank as production sound mixer on that project—not as an “Oscar-winning individual.”
+**Accuracy rule:** Credit *The Elephant Whisperers* as Academy Award–winning film; Shreyank as production sound mixer on that project-not as an “Oscar-winning individual.”
 
 ---
 
 ## C. Audience + User Journeys
 
 ### Audiences
-1. **Film directors** — judge sensibility + set experience  
-2. **Producers / production houses** — verify credits, availability, scope  
-3. **Post supervisors / editors** — assess editorial quality, deliverables  
-4. **Collaborators** (boom ops, designers) — understand kit and workflow  
-5. **Students** — discover resources and notes  
+1. **Film directors** - judge sensibility + set experience  
+2. **Producers / production houses** - verify credits, availability, scope  
+3. **Post supervisors / editors** - assess editorial quality, deliverables  
+4. **Collaborators** (boom ops, designers) - understand kit and workflow  
+5. **Students** - discover resources and notes  
 
 ### Key journeys
 | Goal | Path |
@@ -48,14 +48,14 @@ This redesign transforms a single-page, builder-generated portfolio into a **pre
 
 ```
 / (index.html)
-├── projects.html      [Work — primary]
+├── projects.html      [Work - primary]
 ├── services.html
 ├── gear.html
 ├── resources.html
 ├── about.html
 ├── contact.html
 ├── blog.html          [Notes index]
-├── blog/              [Article pages — canonical URLs preserved]
+├── blog/              [Article pages - canonical URLs preserved]
 │   ├── sync-sound-requirements.html
 │   ├── checking-audio-mxf-after-the-dcp-is-made.html
 │   └── shoortcuts.html
@@ -98,7 +98,7 @@ This redesign transforms a single-page, builder-generated portfolio into a **pre
 
 ## G. Page-by-Page Content
 
-See live HTML files. All copy derived from shreyank.com legacy content, restructured and toned down—no invented credits.
+See live HTML files. All copy derived from shreyank.com legacy content, restructured and toned down-no invented credits.
 
 ---
 
@@ -123,11 +123,11 @@ See live HTML files. All copy derived from shreyank.com legacy content, restruct
 
 ## I. HTML/CSS/JS Build Plan
 
-1. **theme-init.js** in `<head>` — prevents FOUC  
+1. **theme-init.js** in `<head>` - prevents FOUC  
 2. **CSS custom properties** on `html[data-theme="light|dark"]`  
-3. **Shared header/footer** — generated via `scripts/build-pages.py` for consistency  
+3. **Shared header/footer** - generated via `scripts/build-pages.py` for consistency  
 4. **Defer** all scripts except theme-init  
-5. **No frameworks** — per assignment requirements  
+5. **No frameworks** - per assignment requirements  
 
 ---
 
@@ -183,9 +183,9 @@ See live HTML files. All copy derived from shreyank.com legacy content, restruct
 ## O. Interview Talking Points
 
 1. **Why multi-page?** Film professionals scan credits quickly; one page hid the filmography.  
-2. **Why this visual language?** Title-card editorial tone matches sound craft—quiet confidence.  
-3. **Theme system** — respects system preference, persists choice, no flash, CSS variables only.  
-4. **Accuracy** — Oscar language tied to *The Elephant Whisperers*, not personal award claims.  
-5. **Maintainability** — Python generator for shared chrome; project rows in one file.  
-6. **Trade-offs** — Blog stays in `/old/` short-term to ship; gateway preserves SEO paths.  
-7. **What I'd do next** — Lighthouse on production, case studies for 2–3 flagship films, structured `VideoObject` if reels added.
+2. **Why this visual language?** Title-card editorial tone matches sound craft-quiet confidence.  
+3. **Theme system** - respects system preference, persists choice, no flash, CSS variables only.  
+4. **Accuracy** - Oscar language tied to *The Elephant Whisperers*, not personal award claims.  
+5. **Maintainability** - Python generator for shared chrome; project rows in one file.  
+6. **Trade-offs** - Blog stays in `/old/` short-term to ship; gateway preserves SEO paths.  
+7. **What I'd do next** - Lighthouse on production, case studies for 2–3 flagship films, structured `VideoObject` if reels added.

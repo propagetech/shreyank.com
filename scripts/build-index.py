@@ -42,81 +42,64 @@ def panel(section_id, banner_class, heading_id, title, lead, inner):
     </section>"""
 
 
-RECORDING_INNER = """        <div class="container container--narrow">
-          <article class="service-block" id="production-sound">
-            <h3>Production sound mixing</h3>
-            <p>On-set sync sound and multitrack recording for features, documentaries, and series.</p>
-            <p><strong>Includes:</strong> boom and wireless lavs, multitrack mix to recorder, timecode sync, daily sound reports.</p>
-          </article>
-          <article class="service-block" id="sync-sound">
-            <h3>Sync sound</h3>
-            <p>Capturing vocal performance on set so actors are not asked to re-voice in ADR later.</p>
-          </article>
-          <article class="service-block" id="location-recording">
-            <h3>Location sound recording</h3>
-            <p>Full location sound support—dialogue, plant mics, and noise coordination with production.</p>
-          </article>
-          <article class="service-block" id="ambience">
-            <h3>Ambience recording</h3>
-            <p>MS, ORTF, and spaced-pair recordings for room tones, exteriors, and signature environments.</p>
-          </article>
-          <article class="service-block" id="fx-recording">
-            <h3>FX recording</h3>
-            <p>Production effects recorded on location or in controlled environments.</p>
-          </article>
-          <article class="service-block" id="foley-recording">
-            <h3>Foley recording</h3>
-            <p>Location and studio foley with attention to performance, perspective, and sync.</p>
-          </article>
-          <section class="gear-category"><h3>Gear I often use</h3></section>
-          <section class="gear-category"><h4>Recorders &amp; mixers</h4><ul class="gear-list">
-            <li>Sound Devices 788T, 688, 664, 633, 302, MixPre-10T, MixPre-6</li>
-            <li>Deva 5.8</li>
-          </ul></section>
-          <section class="gear-category"><h4>Boom microphones</h4><ul class="gear-list">
-            <li>Schoeps MK41, Super CMIT, CMIT 5U, Mini CMIT</li>
-            <li>Sennheiser MKH 60, 50, 416, 8060 · Sanken CS-3e · DPA 4017B</li>
-          </ul></section>
-          <section class="gear-category"><h4>Wireless</h4><ul class="gear-list">
-            <li>Lectrosonics with Sanken COS-11 / DPA 4060 capsules</li>
-          </ul></section>
-          <section class="gear-category"><h4>Ambience &amp; stereo</h4><ul class="gear-list">
-            <li>MKH 50/30 MS, MKH 418, MKH 50 XY/AB, Holophone, Line Audio CM3 ORTF</li>
-          </ul></section>
-          <section class="gear-category"><h4>FX &amp; location foley</h4><ul class="gear-list"><li>Sennheiser MKH 60 / 416</li></ul></section>
-          <section class="gear-category"><h4>Studio foley</h4><ul class="gear-list">
-            <li>MKH 60, Rode NT1/NT2A, Schoeps CMC6-MK41, Neumann U 87, TLM 103</li>
-          </ul></section>
+RECORDING_INNER = """        <div class="container container--narrow content-stack content-stack--tight">
+          <ul class="service-list">
+            <li>Production Sound Mixing (Sync Sound)</li>
+            <li>Ambience Recording</li>
+            <li>FX Recording</li>
+            <li>Foley Recording</li>
+          </ul>
+          <div class="gear-section">
+            <h3 class="gear-section__title">Gear I often use</h3>
+            <section class="gear-category"><h4>Mixer/Recorder</h4><ul class="gear-list">
+              <li>Sound Devices - 788T, 688, 664, 633, 302, Mix Pre 10T, Mix Pre 6</li>
+              <li>Deva - 5.8</li>
+            </ul></section>
+            <section class="gear-category"><h4>Boom</h4><ul class="gear-list">
+              <li>Schoeps - MK41, Super CMIT, CMIT 5U, Mini CMIT</li>
+              <li>Sennheiser - MKH 60, 50, 416, 8060</li>
+              <li>Sanken - CS3e</li>
+              <li>DPA - 4017B</li>
+            </ul></section>
+            <section class="gear-category"><h4>Wireless Lavalier System</h4><ul class="gear-list">
+              <li>Lectrosonics with Sanken COS-11/DPA 4060 capsule</li>
+            </ul></section>
+            <section class="gear-category"><h4>For Ambience</h4><ul class="gear-list">
+              <li>Sennheiser MKH 50-30 MS pair</li>
+              <li>MKH 418</li>
+              <li>2 × MKH 50 in XY or AB configuration</li>
+              <li>Holofone</li>
+              <li>2 × Line Audio CM3 ORTF</li>
+            </ul></section>
+            <section class="gear-category"><h4>For FX &amp; Location Foley</h4><ul class="gear-list">
+              <li>Sennheiser MKH 60/416</li>
+            </ul></section>
+            <section class="gear-category"><h4>For Studio Foley</h4><ul class="gear-list">
+              <li>Sennheiser MKH 60</li>
+              <li>Rode NT1, NT2A</li>
+              <li>Schoeps CMC6-MK41</li>
+              <li>Neumann U 87, TLM 103</li>
+            </ul></section>
+          </div>
         </div>""".replace("<div ", "<div ").replace("</div>", "</div>")
 
-DESIGN_INNER = """        <div class="container container--narrow">
-          <article class="service-block" id="reconform">
-            <h3>Production tracks re-conform</h3>
-            <p>Re-aligning production audio when picture changes after the offline edit.</p>
-          </article>
-          <article class="service-block" id="dialogue-edit">
-            <h3>Dialogue edit</h3>
-            <p>Assembly, cleaning, and preparation of dialogue tracks—RX workflows where needed.</p>
-          </article>
-          <article class="service-block" id="ambience-edit">
-            <h3>Ambience edit</h3>
-            <p>Backgrounds that support geography, time of day, and editorial rhythm.</p>
-          </article>
-          <article class="service-block" id="fx-edit">
-            <h3>FX edit</h3>
-            <p>Effects editorial with perspective and pace appropriate to the cut.</p>
-          </article>
-          <article class="service-block" id="foley-edit">
-            <h3>Foley edit</h3>
-            <p>Performance-based foley cut to picture.</p>
-          </article>
-          <article class="service-block" id="mix">
-            <h3>Mix</h3>
-            <p>Pre-mix and mix support for dialogue, ambience, effects, and music stems.</p>
-          </article>
-          <section class="gear-category"><h3>DAW &amp; plugins</h3><ul class="gear-list">
-            <li>Avid Pro Tools Ultimate · iZotope RX Advanced · FabFilter · Altiverb</li>
-          </ul></section>
+DESIGN_INNER = """        <div class="container container--narrow content-stack content-stack--tight">
+          <ul class="service-list">
+            <li>Production tracks re-conform</li>
+            <li>Dialogue edit</li>
+            <li>Ambience edit</li>
+            <li>FX edit</li>
+            <li>Foley edit</li>
+            <li>Mix</li>
+          </ul>
+          <div class="gear-section">
+            <section class="gear-category"><h3>DAW &amp; Plugins</h3><ul class="gear-list">
+              <li>Pro Tools Ultimate 2020.9 Perpetual</li>
+              <li>Izotope RX 8 Advanced</li>
+              <li>Fab Filter</li>
+              <li>Altiverb</li>
+            </ul></section>
+          </div>
         </div>"""
 
 PROJECTS_INNER = f"""        <div class="container container--narrow">
@@ -125,9 +108,9 @@ PROJECTS_INNER = f"""        <div class="container container--narrow">
 
 RESOURCES_INNER = """        <div class="container container--narrow">
           <section class="resource-group"><h3>Books</h3><ul class="resource-list">
-            <li><strong>Audio-Vision</strong> — Michel Chion</li>
-            <li><strong>Notes on the Cinematographer</strong> — Robert Bresson</li>
-            <li><strong>Master Handbook of Acoustics</strong> — F. Alton Everest</li>
+            <li><strong>Audio-Vision</strong> - Michel Chion</li>
+            <li><strong>Notes on the Cinematographer</strong> - Robert Bresson</li>
+            <li><strong>Master Handbook of Acoustics</strong> - F. Alton Everest</li>
             <li><a href="http://www.euppublishing.com/loi/sound" rel="noopener noreferrer">The New Soundtrack</a></li>
           </ul></section>
           <section class="resource-group"><h3>Podcasts</h3><ul class="resource-list">
@@ -137,7 +120,7 @@ RESOURCES_INNER = """        <div class="container container--narrow">
           </ul></section>
           <section class="resource-group"><h3>Websites &amp; tools</h3><ul class="resource-list">
             <li><a href="http://filmsound.org/" rel="noopener noreferrer">FilmSound.org</a></li>
-            <li><a href="https://www.schoolofsound.co.uk/sos/audio-and-video-archives/" rel="noopener noreferrer">School of Sound — Archives</a></li>
+            <li><a href="https://www.schoolofsound.co.uk/sos/audio-and-video-archives/" rel="noopener noreferrer">School of Sound - Archives</a></li>
             <li><a href="http://designingsound.org/" rel="noopener noreferrer">Designing Sound</a></li>
             <li><a href="https://amcoustics.com/tools/amroc" rel="noopener noreferrer">Amroc</a></li>
             <li><a href="http://foley-artistry.blogspot.in/" rel="noopener noreferrer">Foley Artistry</a></li>
@@ -176,7 +159,7 @@ def build_sections():
                 "recording",
                 "sound-recording-heading",
                 "Sound Recording",
-                "Production sound mixing, sync sound, and location recording.",
+                "",
                 RECORDING_INNER,
             ),
             panel(
@@ -184,7 +167,7 @@ def build_sections():
                 "design",
                 "sound-design-heading",
                 "Sound Design",
-                "Dialogue, ambience, FX, and foley editorial through pre-mix.",
+                "",
                 DESIGN_INNER,
             ),
             panel(
@@ -212,12 +195,12 @@ INDEX_HTML = """<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Shreyank Nanjappa — Production Sound Mixer &amp; Sound Designer</title>
+  <title>Shreyank Nanjappa - Production Sound Mixer &amp; Sound Designer</title>
   <meta name="description" content="Bengaluru-based production sound mixer and sound designer. Credits include Article 15, Kabir Singh, and The Elephant Whisperers.">
   <link rel="canonical" href="https://www.shreyank.com/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.shreyank.com/">
-  <meta property="og:title" content="Shreyank Nanjappa — Film Sound">
+  <meta property="og:title" content="Shreyank Nanjappa - Film Sound">
   <meta property="og:description" content="Production sound mixing and sound design for feature films, documentaries, and series.">
   <meta property="og:locale" content="en_IN">
   <meta name="twitter:card" content="summary">
@@ -229,6 +212,7 @@ INDEX_HTML = """<!DOCTYPE html>
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#000000">
   <script src="assets/js/theme-init.js"></script>
+  <script src="assets/js/layout-width-init.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
@@ -255,7 +239,7 @@ INDEX_HTML = """<!DOCTYPE html>
       </a>
       <div class="header-actions">
         <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
         </button>
       </div>
       <nav id="site-nav" class="site-nav" aria-label="Primary">
@@ -296,6 +280,7 @@ INDEX_HTML = """<!DOCTYPE html>
 {whatsapp}
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
   <script src="assets/js/navigation.js" defer></script>
+  <script src="assets/js/layout-width.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>

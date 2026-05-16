@@ -1,6 +1,6 @@
 /* Components */
 
-/* Header — original black bar */
+/* Header - original black bar */
 .site-header {
   position: sticky;
   top: 0;
@@ -206,7 +206,7 @@ html[data-theme="dark"] .theme-toggle .icon-sun {
   }
 }
 
-/* Hero — full-viewport cinematic (original) */
+/* Hero - full-viewport cinematic (original) */
 .hero {
   position: relative;
   padding-block: var(--space-20) var(--space-16);
@@ -303,7 +303,7 @@ html[data-theme="dark"] .theme-toggle .icon-sun {
   justify-content: center;
 }
 
-/* Section banners — dark panels with background images */
+/* Section banners - dark panels with background images */
 .page-banner {
   position: relative;
   padding-block: var(--space-20) var(--space-12);
@@ -659,7 +659,7 @@ html[data-theme="light"] .page-banner .eyebrow {
 }
 
 .gear-list li::before {
-  content: "—";
+  content: "-";
   position: absolute;
   left: 0;
   color: var(--color-accent);

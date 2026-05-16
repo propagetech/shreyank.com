@@ -10,7 +10,7 @@
     var email = document.getElementById("email").value.trim();
     var category = document.getElementById("category").value;
     var message = document.getElementById("message").value.trim();
-    var subject = encodeURIComponent("Enquiry: " + category + " — " + name);
+    var subject = encodeURIComponent("Enquiry: " + category + " - " + name);
     var body = encodeURIComponent(
       "Name: " + name + "\nEmail: " + email + "\nType: " + category + "\n\n" + message
     );

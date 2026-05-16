@@ -80,7 +80,7 @@ HEAD = """<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{title} — Shreyank Nanjappa</title>
+  <title>{title} - Shreyank Nanjappa</title>
   <meta name="description" content="{description}">
   <link rel="canonical" href="https://www.shreyank.com/blog/{slug}.html">
   <meta property="og:type" content="article">
@@ -182,7 +182,7 @@ def build_article(post, posts, body_html):
           <div>
             <h2 id="author-heading-{slug}">About the author</h2>
             <p itemprop="author" itemscope itemtype="https://schema.org/Person">
-              <span itemprop="name"><strong>Shreyank Nanjappa</strong></span> — production sound mixer and sound designer.
+              <span itemprop="name"><strong>Shreyank Nanjappa</strong></span> - production sound mixer and sound designer.
               FTII alumnus. Bengaluru &amp; Mumbai.
             </p>
             <p style="margin-top: var(--space-3);"><a href="../about.html">Full profile</a> · <a href="../contact.html">Contact</a></p>
@@ -219,20 +219,20 @@ POSTS = [
         "title": "Sync Sound Requirements",
         "category": "Sound basics",
         "category_slug": "basics",
-        "description": "What sync sound demands from direction, production, actors, camera, crew, and editorial—especially in Indian film production.",
+        "description": "What sync sound demands from direction, production, actors, camera, crew, and editorial-especially in Indian film production.",
         "excerpt": "Why sync sound matters, when it is feasible, and what every department must commit to on set.",
         "iso_date": "2016-11-16",
         "display_date": "16 November 2016",
         "read_time": "8 min",
         "image": "blog-thumb-1.webp",
-        "deck": "A practical introduction to recording dialogue on set—and why it fails when departments are not aligned.",
+        "deck": "A practical introduction to recording dialogue on set-and why it fails when departments are not aligned.",
     },
     {
         "slug": "checking-audio-mxf-after-the-dcp-is-made",
         "title": "Checking Audio MXF after the DCP is made",
         "category": "Technical",
         "category_slug": "technical",
-        "description": "How to extract and compare DCP audio MXF files with ffmpeg and Pro Tools—and why track layout matters for festival delivery.",
+        "description": "How to extract and compare DCP audio MXF files with ffmpeg and Pro Tools-and why track layout matters for festival delivery.",
         "excerpt": "Verifying PCM MXF from a finished DCP against your stereo mix using ffmpeg and phase cancellation in Pro Tools.",
         "iso_date": "2017-02-02",
         "display_date": "2 February 2017",
@@ -245,13 +245,13 @@ POSTS = [
         "title": "Shoortcuts",
         "category": "Sound post",
         "category_slug": "post",
-        "description": "Pro Tools shortcuts worth knowing for dialogue, effects, and foley editorial—including delete fades across selected clips.",
-        "excerpt": "A short list of Pro Tools shortcuts I use regularly for editorial work—not an exhaustive list.",
+        "description": "Pro Tools shortcuts worth knowing for dialogue, effects, and foley editorial-including delete fades across selected clips.",
+        "excerpt": "A short list of Pro Tools shortcuts I use regularly for editorial work-not an exhaustive list.",
         "iso_date": "2016-04-21",
         "display_date": "21 April 2016",
         "read_time": "2 min",
         "image": None,
-        "deck": "You do not need every shortcut—only the ones that match the work you actually do.",
+        "deck": "You do not need every shortcut-only the ones that match the work you actually do.",
     },
 ]
 

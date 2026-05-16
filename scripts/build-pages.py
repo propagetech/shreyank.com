@@ -25,7 +25,7 @@ HEADER_TMPL = """  <a class="skip-link" href="#main">Skip to main content</a>
       <a class="site-logo" href="{logo_href}">Shreyank Nanjappa<span>Film Sound</span></a>
       <div class="header-actions">
         <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
         </button>
       </div>
       <nav id="site-nav" class="site-nav" aria-label="Primary">
@@ -46,6 +46,7 @@ FOOTER_TMPL = """  <footer class="site-footer">
 {whatsapp}
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
   <script src="{asset_prefix}assets/js/navigation.js" defer></script>
+  <script src="{asset_prefix}assets/js/layout-width.js" defer></script>
 {extra}
   <script src="{asset_prefix}assets/js/main.js" defer></script>""".replace("<motion>", "<div>").replace("</motion>", "</div>")
 
@@ -69,6 +70,7 @@ HEAD = """<!DOCTYPE html>
   <link rel="manifest" href="{asset_prefix}site.webmanifest">
   <meta name="theme-color" content="#000000">
   <script src="{asset_prefix}assets/js/theme-init.js"></script>
+  <script src="{asset_prefix}assets/js/layout-width-init.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
@@ -84,7 +86,7 @@ HEAD = """<!DOCTYPE html>
 
 def write_page(name, title, desc, body, schema="", extra="", nav_lines=None, logo_href="index.html"):
     canonical = name if name != "index.html" else ""
-    og = title.split("—")[0].strip() if "—" in title else title
+    og = title.split("-")[0].strip() if "-" in title else title
     nav_lines = nav_lines if nav_lines is not None else home_nav()
     html = HEAD.format(
         title=title,
@@ -111,7 +113,7 @@ def write_page(name, title, desc, body, schema="", extra="", nav_lines=None, log
 BLOG_BODY_TMPL = """    <div class="page-banner page-banner--resources container">
       <p class="eyebrow">Blog</p>
       <h1>Writing on film sound</h1>
-      <p class="lead">Practical introductions to sync sound, post workflows, and tools—with context for Indian production.</p>
+      <p class="lead">Practical introductions to sync sound, post workflows, and tools-with context for Indian production.</p>
     </div>
     <div class="container">
 {cards}
@@ -126,14 +128,14 @@ def blog_body():
 ERROR_BODY = """    <div class="error-page">
       <p class="error-page__code" aria-hidden="true">404</p>
       <h1>Page not found</h1>
-      <p>The page you requested is not here—it may have moved or the link may be outdated.</p>
+      <p>The page you requested is not here-it may have moved or the link may be outdated.</p>
       <a class="btn btn--primary" href="index.html">Return home</a>
     </div>"""
 
 if __name__ == "__main__":
     write_page(
         "blog.html",
-        "Blog — Shreyank Nanjappa",
+        "Blog - Shreyank Nanjappa",
         "Practical notes on sync sound, post workflows, and film sound craft.",
         blog_body(),
         schema='  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Shreyank Nanjappa Blog","url":"https://www.shreyank.com/blog.html"}</script>',
@@ -142,7 +144,7 @@ if __name__ == "__main__":
     )
     write_page(
         "404.html",
-        "Page Not Found — Shreyank Nanjappa",
+        "Page Not Found - Shreyank Nanjappa",
         "The page you requested could not be found.",
         ERROR_BODY,
         nav_lines=home_nav(),
