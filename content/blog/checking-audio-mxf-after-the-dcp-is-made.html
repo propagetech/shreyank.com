@@ -1,0 +1,54 @@
+        <div class="callout">
+          <span class="callout__label">Takeaway</span>
+          <p>I will always check the MXF from the DCP from now on. When in doubt, deliver six mono tracks (L, C, R, Ls, Rs, LFE) even if only L and R carry content.</p>
+        </div>
+
+        <p>First, a short introduction of why I ended up testing the sound MXF.</p>
+
+        <h2 id="background">Background</h2>
+        <p>A short film for which I did the sound recording and design was selected at the Berlin International Film Festival. The DCP was made at a post-production facility in Mumbai. My team asked for the subtitle font size to be set to 21 instead of the usual 38 (or 36?). There are very few dialogues and the usual subtitle size is way too big for our liking.</p>
+        <p>The technical team from Berlin wrote back requesting if we would be willing to send another DCP with bigger subtitles. The subtitles in the DCP that was made were in the CPL.xml format and could not be tampered with using any of the free DCP-making software. We decided to make another DCP from the graded DPX files we had. I used DCP-o-matic with the stereo sound mix and an .srt subtitle file. The new DCP was fine with respect to subtitles.</p>
+        <p>We played the earlier DCP to compare subtitle size and the new one was better—but we noticed quite a bit of difference between the sound in the two DCPs. The room we were testing in was not calibrated to judge which was better, but there definitely was a difference. I was getting worried. Everything I had read suggested that DCP-making software does not usually tamper with sound files.</p>
+
+        <h2 id="extracting-mxf">Extracting audio from the DCP MXF</h2>
+        <p>I decided the best way to see what was happening was to convert the <code>*_pcm.mxf</code> files (which contain the audio) from both DCPs to WAV and compare them with the original stereo mix.</p>
+        <p>After a little research I downloaded ffmpeg and used a command like:</p>
+        <pre><code>ffmpeg -i Name_DCP_PCM.mxf -acodec pcm_s24le -ac 6 audio.wav</code></pre>
+        <p>This extracts the MXF into a 5.1 WAV file.</p>
+
+        <figure>
+          <img src="../assets/images/blog/image-24.webp" alt="ffmpeg terminal output when extracting PCM from DCP MXF" width="640" height="659" loading="lazy">
+          <figcaption>Extracting PCM from the DCP MXF with ffmpeg.</figcaption>
+        </figure>
+
+        <h2 id="track-layout">What showed up in Pro Tools</h2>
+        <p>I converted both MXF files and imported them into Pro Tools. The DCP from the post facility (apparently made with Qube) had content in L, C, and R—the software had derived that from the stereo track we supplied. Ls, Rs, and LFE were empty. Some reading suggested DCPs accept mono, 3.0, 5.1, 7.1, and other layouts.</p>
+
+        <figure>
+          <img src="../assets/images/blog/image-5.webp" alt="Pro Tools session showing L C R populated and surround tracks empty from Qube DCP" width="747" height="363" loading="lazy">
+          <figcaption>DCP from post facility: L, C, R populated from stereo; surrounds and LFE empty.</figcaption>
+        </figure>
+
+        <p>The DCP made with DCP-o-matic had the correct content on L and R; C, Ls, Rs, and LFE were blank.</p>
+
+        <figure>
+          <img src="../assets/images/blog/image-15.webp" alt="Pro Tools session showing L and R only from DCP-o-matic DCP" width="748" height="365" loading="lazy">
+          <figcaption>DCP-o-matic: stereo on L and R only; other channels blank.</figcaption>
+        </figure>
+
+        <h2 id="phase-check">Verifying against the original mix</h2>
+        <p>To verify the tracks were not altered, I aligned L and R from each DCP with L and R from my stereo mix, inserted the default 1-Band EQ on the mix track, and flipped phase. Playback cancelled completely against the DCP tracks—so the stereo content matched.</p>
+
+        <figure>
+          <img src="../assets/images/blog/image-22.webp" alt="Pro Tools phase cancellation test between DCP audio and original stereo mix" width="1326" height="379" loading="lazy">
+          <figcaption>Phase cancellation confirms L/R from the DCP match the supplied stereo mix.</figcaption>
+        </figure>
+
+        <div class="callout callout--conclusion">
+          <span class="callout__label">Conclusion</span>
+          <p>It is best to deliver six mono tracks (named L, C, R, Ls, Rs, LFE) even when only L and R have content and the rest are empty.</p>
+        </div>
+
+        <h2 id="note-stereo-extract">Note on stereo extraction</h2>
+        <p>The following command converts the MXF audio to stereo—which added to my confusion at first:</p>
+        <pre><code>ffmpeg -i Name_DCP_PCM.mxf -acodec pcm_s24le -ac 2 audio.wav</code></pre>
