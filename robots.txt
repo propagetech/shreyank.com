@@ -1,4 +1,32 @@
 User-agent: *
 Allow: /
 
+# Legacy site copies (archived; canonical URLs are at site root and /blog/)
+Disallow: /old/
+Disallow: /legacy/
+Disallow: /version1/
+
+# Build tooling and source fragments (not public pages)
+Disallow: /scripts/
+Disallow: /content/
+Disallow: /_partials/
+
+# Legacy flat-file blog redirects (canonical URLs under /blog/)
+Disallow: /blog-2.html
+Disallow: /blog-checking-audio-mxf-after-the-dcp-is-made.html
+Disallow: /blog-shoortcuts.html
+Disallow: /blog-sync-sound-requirements.html
+
+# Section redirect stubs (canonical: index.html with hash anchors)
+Disallow: /home.html
+Disallow: /about.html
+Disallow: /contact.html
+Disallow: /gear.html
+Disallow: /projects.html
+Disallow: /resources.html
+Disallow: /services.html
+
+# Internal documentation
+Disallow: /STRATEGY.md
+
 Sitemap: https://www.shreyank.com/sitemap.xml
