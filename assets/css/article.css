@@ -231,6 +231,62 @@ pre code {
   color: var(--color-accent);
 }
 
+@media (max-width: 39.99rem) {
+  .shortcut-table {
+    display: block;
+    border: var(--border-width) var(--border-style) var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .shortcut-table thead {
+    display: none;
+  }
+
+  .shortcut-table tbody {
+    display: block;
+  }
+
+  .shortcut-table tbody tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .shortcut-table tbody tr + tr {
+    border-top: var(--border-width) var(--border-style) var(--color-border);
+  }
+
+  .shortcut-table tbody td {
+    display: block;
+    padding: var(--space-3) var(--space-4);
+    border-bottom: var(--border-width) var(--border-style) var(--color-border);
+  }
+
+  .shortcut-table tbody td:last-child {
+    border-bottom: none;
+  }
+
+  .shortcut-table tbody td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: var(--space-2);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
+  }
+
+  .shortcut-table tbody td:first-child {
+    white-space: normal;
+    background: var(--color-bg-subtle);
+  }
+
+  .shortcut-table tbody td:first-child::before {
+    display: none;
+  }
+}
+
 /* TOC */
 .article-toc {
   margin: var(--space-8) 0;
